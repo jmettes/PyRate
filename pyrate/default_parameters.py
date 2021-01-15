@@ -445,7 +445,14 @@ PYRATE_DEFAULT_CONFIGURATION = {
         "PossibleValues": None,
         "Required": False
     },
-
+    "corr_phs": {
+        "DataType": int,
+        "DefaultValue": 1,
+        "MinValue": None,
+        "MaxValue": None,
+        "PossibleValues": [0, 1],
+        "Required": False
+    },
     "demerror": {
         "DataType": int,
         "DefaultValue": 0,
@@ -536,7 +543,7 @@ PYRATE_DEFAULT_CONFIGURATION = {
     },
     "correct": {
         "DataType": list,
-        "DefaultValue": ['orbfit', 'refphase', 'demerror', 'mst', 'apscorrect', 'maxvar', 'timeseries', 'stack'],
+        "DefaultValue": ['orbfit', 'refphase', 'demerror', 'phase_closure', 'mst', 'apscorrect', 'maxvar'],
         "MinValue": None,
         "MaxValue": None,
         "PossibleValues": None,

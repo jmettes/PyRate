@@ -151,6 +151,7 @@ PHS_UNW_ERR_THR = 'phs_unw_err_thr'
 MAX_LOOP_LENGTH = 'max_loop_length'
 SUBTRACT_MEDIAN = 'subtract_median'
 MAX_LOOPS_IN_IFG = 'max_loops_in_ifg'
+CORR_PHASE = 'corr_phs'
 
 # orbital error correction/parameters
 #: BOOL (1/0); Perform orbital error correction (1: yes, 0: no)
