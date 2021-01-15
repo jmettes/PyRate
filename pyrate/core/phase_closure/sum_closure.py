@@ -22,7 +22,7 @@ import numpy as np
 from pyrate.core import config as cf, mpiops, ifgconstants as ifc
 from pyrate.core.shared import Ifg, join_dicts, iterable_split
 from pyrate.core.phase_closure.mst_closure import Edge, WeightedLoop
-from pyrate.core.phase_closure.correct_phase import recover_pixels
+from pyrate.core.phase_closure.correct_phase import find_breached_pixels
 from pyrate.core.logger import pyratelogger as log
 
 IndexedIfg = namedtuple('IndexedIfg', ['index', 'IfgPhase'])
@@ -148,7 +148,7 @@ def __compute_ifgs_breach_count(weighted_loop: WeightedLoop,
     if use_median:
         closure -= np.nanmedian(closure)  # may be able to drop median
 
-    indices_breaching_threshold = recover_pixels(closure, params)
+    indices_breaching_threshold = find_breached_pixels(closure, params)
 
     for signed_edge in weighted_loop.loop:
         ifg_index = edge_to_indexed_ifgs[signed_edge.edge].index
