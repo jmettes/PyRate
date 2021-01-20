@@ -6,6 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-16.04
     name: Python ${{ matrix.python }}
+    if: "!(contains(github.event.commits[0].message, '[skip ci]') || contains(github.event.pull_request.commits[0].message, '[skip ci]'))"
     strategy:
       matrix:
         include:
@@ -38,6 +39,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: echo ${{ toJSON(github.event) }}
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
